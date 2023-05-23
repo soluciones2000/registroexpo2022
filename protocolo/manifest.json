@@ -1,0 +1,16 @@
+{
+	"name": "Expo Fedecámaras Carabobo 2022",
+	"short_name": "Expo 2022",
+	"lang": "es-US",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "white",
+	"theme_color": "gray",
+	"icons": [
+	    {
+	      "src": "img/expologo.png",
+	      "sizes": "2450x1071",
+	      "type": "image/png"
+	    }
+	]
+}

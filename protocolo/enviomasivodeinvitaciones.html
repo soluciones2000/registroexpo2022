@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Expo Fedecámaras Carabobo 2022</title>
+		<link rel="icon" type="image/ico" href="favicon.ico">
+		<link rel="stylesheet" href="./css/estilos2.css">
+		<script type="text/javascript" src="./js/funciones.js"></script>
+	</head>
+	<body onload="inicio()">
+		<div id="container">
+			<div class="logo" align="center">
+				<img id="logo" src="./img/expologo.png" alt="" />
+			</div>
+			<h2>Envío masivo de invitaciones</h2>
+			<div id="div1" align="center">
+				<div id="div0" class="cmps">
+					<span class="etiq">Nombre:</span>
+					<input id="empresa" class="campo" type="text" size="50" maxlength="100" readonly />
+				</div>
+				<div id="div0" class="cmps">
+					<span class="etiq">Correo electrónico:</span>
+					<input id="correo" class="campo" type="text" size="50" maxlength="100" placeholder="email@email.com" onchange="validaemail(this.id,this.value)" />
+				</div>
+				<div id="div0" class="cmps" style="text-align: center;">
+					<span id="mensaje" class="etiq" style="width: 100%; margin: 10px;"></span>
+				</div>
+				<!-- Linea de botones -->
+				<div class="btns">
+					<button id="enviar" onclick="enviar()" style="width: 7em;">Enviar</button>
+					<!-- <button id="salir" onclick="salir()" style="width: 7em;">Salir</button> -->
+				</div>
+			</div>
+		</div>
+		<script>
+         let visitante;
+         const URL      = 'https://app.cash-flag.com/apis/v1/socios/pilarinvitaciones';
+         const URL2     = 'https://app.cash-flag.com/apis/v1/socios/enviainvitaciones';
+
+         function inicio() {
+				document.getElementById("empresa").value = "";
+				document.getElementById("correo").value = "";
+            document.getElementById("mensaje").innerHTML = ""
+
+            fetch(URL, {
+               method: 'GET', mode: 'no-cors'
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+               if (responseData.exito==="SI") {
+                  visitante = responseData.registros;
+               }
+            });
+			}
+
+			async function enviar() {
+            let data;
+            console.log(visitante.length);
+            console.log(visitante);
+            largo = visitante.length;
+            cuenta = 0;
+            // for (i=0;i<visitante.length;i++) {
+
+            let j = 0;
+            for (i=0; i<visitante.length; i++) {
+               console.log(visitante[i].id);
+               console.log(visitante[i].empresa);
+               document.getElementById("empresa").value = visitante[i].empresa;
+               document.getElementById("correo").value = visitante[i].correo;
+                     
+               data = new FormData();
+               data.append("id", visitante[i].id);
+
+               await fetch(URL2, {
+                  method: 'POST',
+                  body: data
+               })
+               .then((response) => response.json())
+               .then((responseData) => {
+                  if (responseData.exito=="SI") {
+                     cuenta++;
+                     document.getElementById("mensaje").innerHTML = cuenta + " de " + largo;
+                  }
+               });
+               j++;
+               if (j>=10) {
+                  setTimeout(() => {
+                     console.log("5 Segundos esperados")
+                  }, 5000);
+                  j = 0;
+               }
+            }
+			}
+
+      </script>
+	</body>
+</html>

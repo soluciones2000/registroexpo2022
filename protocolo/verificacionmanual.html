@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Expo Fedecámaras Carabobo 2022</title>
+		<link rel="icon" type="image/ico" href="favicon.ico">
+		<link rel="stylesheet" href="./css/estilos2.css">
+		<script type="text/javascript" src="./js/funciones.js"></script>
+	</head>
+	<body onload="inicio()">
+		<div id="container">
+			<div class="logo" align="center">
+				<img id="logo" src="./img/expologo.png" alt="" />
+			</div>
+			<h2>Verificacion manual de asistencia</h2>
+			<div id="div1" align="center">
+				<div id="div0" class="cmps">
+					<span class="etiq">Número de pase:</span>
+					<input id="id" class="campo" type="text" size="50" maxlength="7" onkeyup="validanumero(this.id, this.value)" />
+				</div>
+				<div id="div0" class="cmps">
+					<span class="etiq">Teléfono (584xxxxxxxxx):</span>
+					<input id="telefono" class="campo" type="text" size="50" maxlength="12" placeholder="584xxxxxxxxx" onkeyup="validatelefono(this.id, this.value)" />
+				</div>
+				<div id="div0" class="cmps">
+					<span class="etiq">Correo electrónico:</span>
+					<input id="correo" class="campo" type="text" size="50" maxlength="100" placeholder="email@email.com" onchange="validaemail(this.id,this.value)" />
+				</div>
+				<!-- Linea de botones -->
+				<div class="btns">
+					<button id="buscar" onclick="buscar()" style="width: 7em;">Buscar</button>
+					<button id="salir" onclick="salir()" style="width: 7em;">Salir</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			xsalir = localStorage.getItem("url_bck2");
+         const URL      = 'https://app.cash-flag.com/apis/expo/buscavisitantes';
+         const xURL     = 'https://app.cash-flag.com/apis/expo/confirmapase';
+         const operador = localStorage.getItem("nombre");
+         const dia      = localStorage.getItem("dia");
+
+         function inicio() {
+				document.getElementById("id").value = "";
+				document.getElementById("telefono").value = "";
+				document.getElementById("correo").value = "";
+			}
+
+			function buscar() {
+            if (document.getElementById("id").value!="" || document.getElementById("correo").value!="" || document.getElementById("telefono").value!="") {
+               let data = new FormData();
+               data.append("id",       document.getElementById("id").value);
+               data.append("telefono", document.getElementById("telefono").value);
+               data.append("correo",   document.getElementById("correo").value);
+
+               fetch(URL, {
+                  method: 'POST',
+                  body: data
+               })
+               .then((response) => response.json())
+               .then((responseData) => {
+                  if (responseData.exito==="SI") {
+                     visitante = responseData.registros;
+                     mensaje = 'Pase número: '+visitante.id+"\n";
+                     mensaje += 'Nombre del visitante: '+visitante.nombres.trim()+' '+visitante.apellidos.trim()+"\n";
+                     mensaje += 'Empresa: '+visitante.empresa.trim()+"\n\n";
+                     mensaje += 'Cantidad de personas:';
+                     cantidad = prompt(mensaje,visitante.cantidad)
+                     if (cantidad!=0 && cantidad!=null) {
+                        if (confirm('¿Confirmar pase?')) {
+                           confirmar(visitante.id, cantidad);
+                        }
+                     }
+                     document.getElementById("id").focus();
+                  } else {
+                     alert(responseData.mensaje);
+                     document.getElementById("id").focus();
+                  }
+               });
+            } else {
+               alert("Debe ingresar alguno de los tres datos solicitados");
+               document.getElementById("id").focus();
+            }
+			}
+
+         function confirmar(id, cantidad) {
+            let data = new FormData();
+            data.append("operador", operador);
+            data.append("dia",      dia);
+            data.append("id",       id);
+            data.append("cantidad", cantidad);
+
+            fetch(xURL, {
+               method: 'POST',
+               body: data
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+               if (responseData.exito==="SI") {
+                  alert(responseData.mensaje);
+                  document.getElementById("id").value = "";
+                  document.getElementById("telefono").value = "";
+                  document.getElementById("correo").value = "";
+               } else {
+                  alert(responseData.mensaje);
+                  document.getElementById("id").focus();
+               }
+            });
+         }
+
+			function salir() {
+            window.location.replace(xsalir);
+			}
+
+			const validanumero = (elemento,valor) => {
+				lista = "0123456789";
+				let novalido = 0;
+				for (let i = 0; i < valor.length; i++) {
+					posicion = lista.indexOf(valor.substr(i,1));
+					if (posicion<0) {
+						novalido++;
+					}
+				}
+				if (novalido>0) {
+					alert("En este campo sólo se permiten números.");
+					document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+
+					document.getElementById(elemento).focus();
+				}
+			}
+
+         const validaemail = (elemento,correo) => {
+            if (correo!="") {
+               arroba = 0;
+               punto = 0;
+               posa = 0;
+               posp = 0;
+               for (index = 0; index < correo.length; index++) {
+                  if (correo[index] == "@") { arroba++; posa = index; }
+                  if (correo[index] == ".") { punto++; posp = index; }
+               }
+               if (arroba + punto > 1 && posp > posa) {
+                  return true;
+               } else {
+                  // if (opc==1) { alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); }
+                  alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); 
+                  document.getElementById(elemento).focus();
+                  return false;
+               }
+            }
+         }
+
+			const validatelefono = (elemento,valor) => {
+				lista = "0123456789";
+				let novalido = 0;
+				for (let i = 0; i < valor.length; i++) {
+					posicion = lista.indexOf(valor.substr(i,1));
+					if (posicion<0) {
+						novalido++;
+					}
+					if (i==0) {
+						if(valor.substr(i,1)!='5') {
+							novalido = 20;
+						}
+					}
+					if (i==1) {
+						if(valor.substr(i,1)!='8') {
+							novalido = 21;
+						}
+					}
+					if (i==2) {
+						if(valor.substr(i,1)!='4') {
+							novalido = 22;
+						}
+					}
+				}
+				if (novalido>0) {
+               if (novalido==20) {
+                  alert("El número de teléfono debe empezar por 5");
+               } else {
+                  if (novalido==21) {
+                     alert("El segundo caracter en el número de teléfono debe ser 8");
+                  } else {
+                     if (novalido==22) {
+                        alert("El tercer caracter en el número de teléfono debe ser 4");
+                     } else {
+                        alert("En este campo sólo se permiten números");
+                     }
+                  }
+               }
+					document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+
+					document.getElementById(elemento).focus();
+				}
+			}
+      </script>
+	</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Registro de expositores de expo Fedecámaras 2023</title>
+   <link rel="icon" type="image/ico" href="favicon.ico">
+   <script src="./jvs.js"></script>
+   <link href="./stl.css" rel="stylesheet">
+   <style type="text/css">
+      @font-face {
+         font-weight: 400;
+         font-style: normal;
+         font-family: 'Circular-Loom';
+
+         src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+      }
+
+      @font-face {
+         font-weight: 500;
+         font-style: normal;
+         font-family: 'Circular-Loom';
+
+         src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+      }
+
+      @font-face {
+         font-weight: 700;
+         font-style: normal;
+         font-family: 'Circular-Loom';
+
+         src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+      }
+
+      @font-face {
+         font-weight: 900;
+         font-style: normal;
+         font-family: 'Circular-Loom';
+
+         src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+      }
+
+      .container {
+         width: 40%;
+      }
+
+      .clsimg {
+         width: 30%;
+      }
+
+      @media only screen and (max-width: 800px) {
+         .container {
+            width: 80%;
+         }
+         .clsimg {
+            width: 50%;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <div id="root">
+      <div class="App">
+         <section>
+            <img class="clsimg" src="../logoexpo2023.png" alt="Logo Expo" style="margin-top: 10px;">
+            <h1 style="margin: 0px; color: red;">Registro de expositores</h1>
+            <h3 style="margin: 0px; font-size: 80%; color: red;">(Solo para ser llenado por expositores con acuerdo comercial)</h1>
+            <div class="container" style="background: lightgray; margin: 10px auto; padding: 20px; border-radius: 10px; box-shadow: rgb(0, 0, 0) 0px 0px 10px;">
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 100%; text-align: center; font-size: 110%;">
+                     <label for=""><b>Información general</b></label>
+                  </div>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Nombre o razón social</label>
+                  </div>
+                  <input id="nombre" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">R.I.F.</label>
+                  </div>
+                  <input id="rif" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Rubro económico</label>
+                  </div>
+                  <input id="rubro" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Contribuyente especial</label>
+                  </div>
+                  <input id="contribuyente" type="checkbox" value="" style="width: 25px;"> SI
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Dirección fiscal</label>
+                  </div>
+                  <input id="direccion" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Ciudad</label>
+                  </div>
+                  <input id="ciudad" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Estado</label>
+                  </div>
+                  <input id="estado" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">País</label>
+                  </div>
+                  <input id="pais" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Teléfono <span style="font-size: 75%;">(58xxxxxxxxxx)</span></label>
+                  </div>
+                  <input id="telefonofijo" type="text" value="" maxlength="12" style="width: 50%;" placeholder="58xxxxxxxxxx">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Teléfono celular <span style="font-size: 75%;">(584xxxxxxxxx)</span></label>
+                  </div>
+                  <input id="telefono" type="text" value="" maxlength="12" style="width: 50%;" placeholder="584xxxxxxxxx">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Participó en Expo Fedecámaras 2022</label>
+                  </div>
+                  <input id="expo2022" type="checkbox" value="" style="width: 25px;"> SI
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Especifique</label>
+                  </div>
+                  <input id="especifique" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Correo</label>
+                  </div>
+                  <input id="correo" type="email" value="" style="width: 50%;" placeholder="email@email.com" onchange="validaemail(this.id,this.value)">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Página web</label>
+                  </div>
+                  <input id="paginaweb" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Redes sociales</label>
+                  </div>
+                  <input id="rrss" type="text" value="" style="width: 50%;">
+               </div>
+
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 100%; text-align: center; font-size: 110%;">
+                     <label for=""><b>Información persona de contacto</b></label>
+                  </div>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Persona responsable</label>
+                  </div>
+                  <input id="contacto" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Teléfono <span style="font-size: 75%;">(584xxxxxxxxx)</span></label>
+                  </div>
+                  <input id="telefonocontacto" type="text" value="" maxlength="12" style="width: 50%;" placeholder="584xxxxxxxxx">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Correo</label>
+                  </div>
+                  <input id="correocontacto" type="email" value="" style="width: 50%;" placeholder="email@email.com" onchange="validaemail(this.id,this.value)">
+               </div>
+
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 100%; text-align: center; font-size: 110%;">
+                     <label for=""><b>Información Expo Fedecámaras 2023</b></label>
+                  </div>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Tipo de stand</label>
+                  </div>
+                  <input id="tipostand" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Número de stand asignado</label>
+                  </div>
+                  <input id="numerostand" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Tipo de patrocinio</label>
+                  </div>
+                  <input id="tipopatrocinio" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Rueda de negocios</label>
+                  </div>
+                  <input id="ruedanegocios" type="text" value="" style="width: 50%;">
+               </div>
+
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 100%; text-align: center; font-size: 110%;">
+                     <label for=""><b>Pago</b></label>
+                  </div>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Forma de pago</label>
+                  </div>
+                  <select name="formapago" id="formapago" style="width: 50%;">
+                     <option value="ninguna">Seleccione</option>
+                     <option value="transferencia">Transferencia Bancaria (Bs.)</option>
+                     <option value="efectivo">Efectivo</option>
+                     <option value="anticipo">Anticipo</option>
+                     <option value="deposito">Depósito Cuenta Custodia</option>
+                     <option value="zelle">Zelle</option>
+                  </select>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Monto</label>
+                  </div>
+                  <input id="monto" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Referencia</label>
+                  </div>
+                  <input id="referencia" type="text" value="" style="width: 50%;">
+               </div>
+
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 100%; text-align: center; font-size: 110%;">
+                     <label for=""><b>Información del vendedor</b></label>
+                  </div>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Cámara</label>
+                  </div>
+                  <input id="camara" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Responsable</label>
+                  </div>
+                  <input id="responsable" type="text" value="" style="width: 50%;">
+               </div>
+
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 100%; text-align: center; font-size: 110%;">
+                     <label for=""><b>Observaciones</b></label>
+                  </div>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Observaciones</label>
+                  </div>
+                  <textarea id="observaciones" cols="50" rows="3" value="" style="width: 50%;"></textarea>
+               </div>
+
+               <div class="botones" style="text-align: right;">
+                  <button id="btnenviar" style="height: 2rem; width: 5rem; border-radius: 5px;" onclick="enviar()">Enviar</button>
+               </div>
+            </div>
+         </section>
+         <br/>
+      </div>
+   </div>
+   <div style="width: 100%; position: fixed; bottom: 0; text-align: right; margin-right: 10px; font-size: 90%;">
+      Desarrollado por <a href="https://www.sgc-consultores.com.ve">SGC Consultores C.A.</a>
+   </div>
+   <script>
+      const URL = 'https://app.cash-flag.com/apis/expo/expositores'
+
+      const validaemail = (elemento,correo) => {
+			if (correo!="") {
+				arroba = 0;
+				punto = 0;
+				posa = 0;
+				posp = 0;
+				for (index = 0; index < correo.length; index++) {
+					if (correo[index] == "@") { arroba++; posa = index; }
+					if (correo[index] == ".") { punto++; posp = index; }
+				}
+				if (arroba + punto > 1 && posp > posa) {
+					return true;
+				} else {
+					// if (opc==1) { alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); }
+               alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); 
+					document.getElementById(elemento).focus();
+					return false;
+				}
+			}
+		}
+
+			const validanumero = (elemento,valor) => {
+				lista = "0123456789,.";
+				let novalido = 0;
+				for (let i = 0; i < valor.length; i++) {
+					posicion = lista.indexOf(valor.substr(i,1));
+					if (posicion<0) {
+						novalido++;
+					}
+				}
+				if (novalido>0) {
+					alert("En este campo sólo se permiten números, coma (,) o punto (.)");
+					document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+
+					document.getElementById(elemento).focus();
+				}
+			}
+
+			const validatelefono = (elemento,valor) => {
+				lista = "0123456789";
+				let novalido = 0;
+				for (let i = 0; i < valor.length; i++) {
+					posicion = lista.indexOf(valor.substr(i,1));
+					if (posicion<0) {
+						novalido++;
+					}
+					if (i==0) {
+						if(valor.substr(i,1)!='5') {
+							novalido = 20;
+						}
+					}
+					if (i==1) {
+						if(valor.substr(i,1)!='8') {
+							novalido = 21;
+						}
+					}
+					if (i==2) {
+						if(valor.substr(i,1)!='4') {
+							novalido = 22;
+						}
+					}
+				}
+				if (novalido>0) {
+               if (novalido==20) {
+                  alert("El número de teléfono debe empezar por 5");
+               } else {
+                  if (novalido==21) {
+                     alert("El segundo caracter en el número de teléfono debe ser 8");
+                  } else {
+                     if (novalido==22) {
+                        alert("El tercer caracter en el número de teléfono debe ser 4");
+                     } else {
+                        alert("En este campo sólo se permiten números");
+                     }
+                  }
+               }
+					document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+
+					document.getElementById(elemento).focus();
+				}
+			}
+
+
+      const enviar = () => {
+         valor = document.getElementById("telefono").value;
+         lista = "0123456789";
+			let novalido = 0;            
+			for (let i = 0; i < valor.length; i++) {
+				posicion = lista.indexOf(valor.substr(i,1));
+				if (posicion<0) {
+					novalido++;
+				}
+				if (i==0) {
+					if(valor.substr(i,1)!='5') {
+						novalido = 20;
+					}
+				}
+				if (i==1) {
+					if(valor.substr(i,1)!='8') {
+						novalido = 21;
+					}
+				}
+				if (i==2) {
+					if(valor.substr(i,1)!='4') {
+						novalido = 22;
+					}
+				}
+			}
+         if (valor.length!=12) { novalido = 23; }
+			if (novalido>0) {
+            if (novalido==20) {
+               alert("El número de teléfono debe empezar por 5");
+            } else {
+               if (novalido==21) {
+                  alert("El segundo caracter en el número de teléfono debe ser 8");
+               } else {
+                  if (novalido==22) {
+                     alert("El tercer caracter en el número de teléfono debe ser 4");
+                  } else {
+                     if (novalido==23) {
+                        alert("El número de teléfono debe tener 12 dígitos");
+                     } else {
+                        alert("En este campo sólo se permiten números");
+                     }
+                  }
+               }
+            }
+				document.getElementById("telefono").focus();
+			} else {
+            valor = document.getElementById("telefonocontacto").value;
+            lista = "0123456789";
+            let novalido = 0;            
+            for (let i = 0; i < valor.length; i++) {
+               posicion = lista.indexOf(valor.substr(i,1));
+               if (posicion<0) {
+                  novalido++;
+               }
+               if (i==0) {
+                  if(valor.substr(i,1)!='5') {
+                     novalido = 20;
+                  }
+               }
+               if (i==1) {
+                  if(valor.substr(i,1)!='8') {
+                     novalido = 21;
+                  }
+               }
+               if (i==2) {
+                  if(valor.substr(i,1)!='4') {
+                     novalido = 22;
+                  }
+               }
+            }
+            if (valor.length!=12) { novalido = 23; }
+            if (novalido>0) {
+               if (novalido==20) {
+                  alert("El número de teléfono debe empezar por 5");
+               } else {
+                  if (novalido==21) {
+                     alert("El segundo caracter en el número de teléfono debe ser 8");
+                  } else {
+                     if (novalido==22) {
+                        alert("El tercer caracter en el número de teléfono debe ser 4");
+                     } else {
+                        if (novalido==23) {
+                           alert("El número de teléfono debe tener 12 dígitos");
+                        } else {
+                           alert("En este campo sólo se permiten números");
+                        }
+                     }
+                  }
+               }
+               document.getElementById("telefonocontacto").focus();
+            } else {
+               if (document.getElementById("nombre").value!="") {
+                  document.getElementById("btnenviar").disabled = true;
+
+                  let data = new FormData();
+
+                  data.append("nombre",           document.getElementById("nombre").value);
+                  data.append("rif",              document.getElementById("rif").value);
+                  data.append("rubro",            document.getElementById("rubro").value);
+                  data.append("contribuyente",    (document.getElementById("contribuyente").checked) ? 'SI' : 'NO');
+                  data.append("direccion",        document.getElementById("direccion").value);
+                  data.append("ciudad",           document.getElementById("ciudad").value);
+                  data.append("estado",           document.getElementById("estado").value);
+                  data.append("pais",             document.getElementById("pais").value);
+                  data.append("telefonofijo",     document.getElementById("telefonofijo").value);
+                  data.append("telefono",         document.getElementById("telefono").value);
+                  data.append("expo2022",         (document.getElementById("expo2022").checked) ? 'SI' : 'NO');
+                  data.append("especifique",      document.getElementById("especifique").value);
+                  data.append("correo",           document.getElementById("correo").value);
+                  data.append("paginaweb",        document.getElementById("paginaweb").value);
+                  data.append("rrss",             document.getElementById("rrss").value);
+                  data.append("contacto",         document.getElementById("contacto").value);
+                  data.append("telefonocontacto", document.getElementById("telefonocontacto").value);
+                  data.append("correocontacto",   document.getElementById("correocontacto").value);
+                  data.append("tipostand",        document.getElementById("tipostand").value);
+                  data.append("numerostand",      document.getElementById("numerostand").value);
+                  data.append("tipopatrocinio",   document.getElementById("tipopatrocinio").value);
+                  data.append("ruedanegocios",    document.getElementById("ruedanegocios").value);
+                  data.append("formapago",        document.getElementById("formapago").value);
+                  data.append("monto",            document.getElementById("monto").value);
+                  data.append("referencia",       document.getElementById("referencia").value);
+                  data.append("camara",           document.getElementById("camara").value);
+                  data.append("responsable",      document.getElementById("responsable").value);
+                  data.append("observaciones",    document.getElementById("observaciones").value);
+
+                  fetch(URL, {
+                     method: 'POST',
+                     body: data
+                  })
+                  .then((response) => response.json())
+                  .then((responseData) => {
+                     alert(responseData.mensaje);
+                     if (responseData.exito==="SI") {
+                        document.getElementById("nombre").value = "";
+                        document.getElementById("rif").value = "";
+                        document.getElementById("rubro").value = "";
+                        document.getElementById("contribuyente").checked = false;
+                        document.getElementById("direccion").value = "";
+                        document.getElementById("ciudad").value = "";
+                        document.getElementById("estado").value = "";
+                        document.getElementById("pais").value = "";
+                        document.getElementById("telefonofijo").value = "";
+                        document.getElementById("telefono").value = "";
+                        document.getElementById("expo2022").checked = false;
+                        document.getElementById("especifique").value = "";
+                        document.getElementById("correo").value = "";
+                        document.getElementById("paginaweb").value = "";
+                        document.getElementById("rrss").value = "";
+                        document.getElementById("contacto").value = "";
+                        document.getElementById("telefonocontacto").value = "";
+                        document.getElementById("correocontacto").value = "";
+                        document.getElementById("tipostand").value = "";
+                        document.getElementById("numerostand").value = "";
+                        document.getElementById("tipopatrocinio").value = "";
+                        document.getElementById("ruedanegocios").value = "";
+                        document.getElementById("formapago").value = "ninguna";
+                        document.getElementById("monto").value = "";
+                        document.getElementById("referencia").value = "";
+                        document.getElementById("camara").value = "";
+                        document.getElementById("responsable").value = "";
+                        document.getElementById("observaciones").value = "";
+                        document.getElementById("btnenviar").disabled = false;
+                     } else {
+                        document.getElementById("btnenviar").disabled = false;
+                     }
+                  });
+               } else {
+                  alert('Debe indicar al menos nombre y teléfono para procesar el registro.');
+               }
+            }
+         }
+      }
+   </script>
+</body>
+</html>

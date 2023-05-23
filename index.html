@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Registro de visitantes a expo Fedecámaras 2023</title>
+   <link rel="icon" type="image/ico" href="favicon.ico">
+   <script src="./jvs.js"></script>
+   <link href="./stl.css" rel="stylesheet">
+   <style type="text/css">
+      @font-face {
+         font-weight: 400;
+         font-style: normal;
+         font-family: 'Circular-Loom';
+
+         src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+      }
+
+      @font-face {
+         font-weight: 500;
+         font-style: normal;
+         font-family: 'Circular-Loom';
+
+         src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+      }
+
+      @font-face {
+         font-weight: 700;
+         font-style: normal;
+         font-family: 'Circular-Loom';
+
+         src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+      }
+
+      @font-face {
+         font-weight: 900;
+         font-style: normal;
+         font-family: 'Circular-Loom';
+
+         src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+      }
+
+      .container {
+         width: 40%;
+      }
+
+      .clsimg {
+         width: 30%;
+      }
+
+      @media only screen and (max-width: 800px) {
+         .container {
+            width: 80%;
+         }
+         .clsimg {
+            width: 50%;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <div id="root">
+      <div class="App">
+         <section>
+            <img class="clsimg" src="./logoexpo2023.png" alt="Logo Expo" style="margin-top: 10px;">
+            <h1 style="margin: 0px;">Registro de visitantes</h1>
+            <div class="container" style="background: lightgray; margin: 10px auto; padding: 20px; border-radius: 10px; box-shadow: rgb(0, 0, 0) 0px 0px 10px;">
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Nombre</label>
+                  </div>
+                  <input id="nombres" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Apellidos</label>
+                  </div>
+                  <input id="apellidos" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Profesión / Oficio</label>
+                  </div>
+                  <input id="profesion" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Empresa</label>
+                  </div>
+                  <input id="empresa" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Teléfono <span style="font-size: 75%;">(584xxxxxxxxx)</span></label>
+                  </div>
+                  <input id="telefono" type="text" value="" maxlength="12" style="width: 50%;" placeholder="584xxxxxxxxx" onkeyup="validatelefono(this.id, this.value)">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Correo</label>
+                  </div>
+                  <input id="correo" type="email" value="" style="width: 50%;" placeholder="email@email.com" onchange="validaemail(this.id,this.value)">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Estado</label>
+                  </div>
+                  <input id="estado" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">País</label>
+                  </div>
+                  <input id="pais" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Cant. de personas</label>
+                  </div>
+                  <input id="cantidad" type="number" min="1" value="1" style="width: 50%;" placeholder="1">
+                  <script>
+                     document.getElementById("cantidad").value = 1;
+                  </script>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="ninguno">Sector</label>
+                  </div>
+                  <select id="sector" type="text" style="width: 50%;">
+                     <option value="ninguno">Seleccione</option>
+                     <option value="Alimentos">Alimentos</option>
+                     <option value="Artes gráficas">Artes gráficas</option>
+                     <option value="Calzado y Textil">Calzado y Textil</option>
+                     <option value="Comercio">Comercio</option>
+                     <option value="Construcción y Madera">Construcción y Madera</option>
+                     <option value="Distribuidor">Distribuidor</option>
+                     <option value="Eléctrico">Eléctrico</option>
+                     <option value="Manufactura">Manufactura</option>
+                     <option value="Metalmecánico">Metalmecánico</option>
+                     <option value="Plástico">Plástico</option>
+                     <option value="Químico">Químico</option>
+                     <option value="Servicios">Servicios</option>
+                     <option value="Tecnología y Nuevas Tendencias">Tecnología y Nuevas Tendencias</option>
+                  </select>
+               </div>
+               <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+                  <div style="width: 50%; text-align: left;">
+                     <label for="">Cámara</label>
+                  </div>
+                  <input id="camara" type="text" value="" style="width: 50%;">
+               </div>
+               <div class="botones" style="text-align: right;">
+                  <button id="btnenviar" style="height: 2rem; width: 5rem; border-radius: 5px;" onclick="enviar()">Enviar</button>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+   <div style="width: 100%; position: fixed; bottom: 0; text-align: right; margin-right: 10px; font-size: 90%;">
+      Desarrollado por <a href="https://www.sgc-consultores.com.ve">SGC Consultores C.A.</a>
+   </div>
+   <script>
+      const URL = 'https://app.cash-flag.com/apis/expo/visitantes'
+
+      const validaemail = (elemento,correo) => {
+			if (correo!="") {
+				arroba = 0;
+				punto = 0;
+				posa = 0;
+				posp = 0;
+				for (index = 0; index < correo.length; index++) {
+					if (correo[index] == "@") { arroba++; posa = index; }
+					if (correo[index] == ".") { punto++; posp = index; }
+				}
+				if (arroba + punto > 1 && posp > posa) {
+					return true;
+				} else {
+					// if (opc==1) { alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); }
+               alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); 
+					document.getElementById(elemento).focus();
+					return false;
+				}
+			}
+		}
+
+			const validanumero = (elemento,valor) => {
+				lista = "0123456789,.";
+				let novalido = 0;
+				for (let i = 0; i < valor.length; i++) {
+					posicion = lista.indexOf(valor.substr(i,1));
+					if (posicion<0) {
+						novalido++;
+					}
+				}
+				if (novalido>0) {
+					alert("En este campo sólo se permiten números, coma (,) o punto (.)");
+					document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+
+					document.getElementById(elemento).focus();
+				}
+			}
+
+			const validatelefono = (elemento,valor) => {
+				lista = "0123456789";
+				let novalido = 0;
+				for (let i = 0; i < valor.length; i++) {
+					posicion = lista.indexOf(valor.substr(i,1));
+					if (posicion<0) {
+						novalido++;
+					}
+					if (i==0) {
+						if(valor.substr(i,1)!='5') {
+							novalido = 20;
+						}
+					}
+					if (i==1) {
+						if(valor.substr(i,1)!='8') {
+							novalido = 21;
+						}
+					}
+					if (i==2) {
+						if(valor.substr(i,1)!='4') {
+							novalido = 22;
+						}
+					}
+				}
+				if (novalido>0) {
+               if (novalido==20) {
+                  alert("El número de teléfono debe empezar por 5");
+               } else {
+                  if (novalido==21) {
+                     alert("El segundo caracter en el número de teléfono debe ser 8");
+                  } else {
+                     if (novalido==22) {
+                        alert("El tercer caracter en el número de teléfono debe ser 4");
+                     } else {
+                        alert("En este campo sólo se permiten números");
+                     }
+                  }
+               }
+					document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+
+					document.getElementById(elemento).focus();
+				}
+			}
+
+
+      const enviar = () => {
+         valor = document.getElementById("telefono").value;
+         lista = "0123456789";
+			let novalido = 0;            
+			for (let i = 0; i < valor.length; i++) {
+				posicion = lista.indexOf(valor.substr(i,1));
+				if (posicion<0) {
+					novalido++;
+				}
+				if (i==0) {
+					if(valor.substr(i,1)!='5') {
+						novalido = 20;
+					}
+				}
+				if (i==1) {
+					if(valor.substr(i,1)!='8') {
+						novalido = 21;
+					}
+				}
+				if (i==2) {
+					if(valor.substr(i,1)!='4') {
+						novalido = 22;
+					}
+				}
+			}
+         if (valor.length!=12) { novalido = 23; }
+			if (novalido>0) {
+            if (novalido==20) {
+               alert("El número de teléfono debe empezar por 5");
+            } else {
+               if (novalido==21) {
+                  alert("El segundo caracter en el número de teléfono debe ser 8");
+               } else {
+                  if (novalido==22) {
+                     alert("El tercer caracter en el número de teléfono debe ser 4");
+                  } else {
+                     if (novalido==23) {
+                        alert("El número de teléfono debe tener 12 dígitos");
+                     } else {
+                        alert("En este campo sólo se permiten números");
+                     }
+                  }
+               }
+            }
+				document.getElementById("telefono").focus();
+			} else {
+				document.getElementById("btnenviar").disabled = true;
+
+            let data = new FormData();
+
+            data.append("nombres",   document.getElementById("nombres").value);
+            data.append("apellidos", document.getElementById("apellidos").value);
+            data.append("profesion", document.getElementById("profesion").value);
+            data.append("empresa",   document.getElementById("empresa").value);
+            data.append("telefono",  document.getElementById("telefono").value);
+            data.append("correo",    document.getElementById("correo").value);
+            data.append("estado",    document.getElementById("estado").value);
+            data.append("pais",      document.getElementById("pais").value);
+            data.append("cantidad",  document.getElementById("cantidad").value);
+            data.append("sector",    document.getElementById("sector").value);
+            data.append("camara",    document.getElementById("camara").value);
+            
+            fetch(URL, {
+               method: 'POST',
+               body: data
+            })
+            .then((response) => response.json())
+            .then((responseData) => {
+               alert(responseData.mensaje);
+               if (responseData.exito==="SI") {
+                  document.getElementById("nombres").value = "";
+                  document.getElementById("apellidos").value = "";
+                  document.getElementById("profesion").value = "";
+                  document.getElementById("empresa").value = "";
+                  document.getElementById("telefono").value = "";
+                  document.getElementById("correo").value = "";
+                  document.getElementById("estado").value = "";
+                  document.getElementById("pais").value = "";
+                  document.getElementById("cantidad").value = "1";
+                  document.getElementById("sector").value = "ninguno";
+                  document.getElementById("camara").value = "";
+                  document.getElementById("btnenviar").disabled = false;
+               } else {
+                  document.getElementById("btnenviar").disabled = false;
+               }
+            });
+         }
+      }
+   </script>
+</body>
+</html>

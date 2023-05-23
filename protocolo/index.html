@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Expo Fedecámaras Carabobo 2022</title>
+		<link rel="icon" type="image/ico" href="favicon.ico">
+		<link rel="stylesheet" href="./css/estilos2.css">
+		<script type="text/javascript" src="./js/funciones.js"></script>
+	</head>
+	<body onload="inicio()">
+		<div id="container">
+			<div class="logo" align="center">
+				<img id="logo" src="./img/expologo.png" alt="" />
+			</div>
+			<h2>Registro de asistentes</h2>
+			<div id="div1" align="center">
+				<h3>Identificación</h3>
+				<div id="div0" class="cmps">
+					<span class="etiq">Nombre:</span>
+					<input id="nombre" class="campo" type="text" size="50" maxlength="100" />
+				</div>
+				<div id="div2" class="cmps">
+					<span class="etiq">Día:</span>
+               <select class="campo" id="dia">
+                  <option value="0">Seleccione</option>
+                  <option value="1">Jueves 25</option>
+                  <option value="2">Viernes 26</option>
+                  <option value="3">Sábado 27</option>
+               </select>
+				</div>
+				<!-- Linea de botones -->
+				<div class="btns">
+					<button id="login" onclick="login()" style="width: 7em;">Ingresar</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			sessionStorage.clear();
+
+			function inicio() {
+				nombre = "";
+				dia = 0;
+				document.getElementById("nombre").value = "";
+				document.getElementById("dia").value = 0;
+				document.getElementById("login").style.display = 'inline-block';
+				localStorage.setItem("url_back",window.location);				
+			}
+
+			function login() {
+            if (document.getElementById("nombre").value!="" && document.getElementById("dia").value!=0) {
+               nombre = document.getElementById("nombre").value;
+               dia = document.getElementById("dia").value;
+               localStorage.setItem("nombre", nombre);
+               localStorage.setItem("dia", dia);
+
+               window.location.replace("./menu.html");
+            } else {
+               alert("Debe ingresar un nombre y un día");
+               document.getElementById("nombre").focus();
+            }
+			}
+		</script>
+	</body>
+</html>
