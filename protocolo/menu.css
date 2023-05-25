@@ -18,9 +18,9 @@ body {
     width: 60%;
     /* min-width: 400px; */
     /* background: lightgray; */
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -37,9 +37,9 @@ img {
     object-fit: contain;
 }
 
-#div1 {
+/* #div1 { 
     height: 45em;
-}
+} */
 
 .seccion {
     width: 100%;
@@ -118,9 +118,9 @@ a {
     #container {
         width: 90%;
     }
-    #div1 {
+    /* #div1 {
         height: 58em;
-    }
+    } */
     .catalogo {
         grid-template-columns: repeat(auto-fit, calc(var(--alto)*1.2));
         padding: 20px 5px;

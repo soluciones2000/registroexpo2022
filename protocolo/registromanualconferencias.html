@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Expo Fedecámaras Carabobo 2022</title>
+		<link rel="icon" type="image/ico" href="favicon.ico">
+		<link rel="stylesheet" href="./css/estilos2.css">
+		<script type="text/javascript" src="./js/funciones.js"></script>
+
+      <style type="text/css">
+         @font-face {
+            font-weight: 400;
+            font-style: normal;
+            font-family: 'Circular-Loom';
+   
+            src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+         }
+   
+         @font-face {
+            font-weight: 500;
+            font-style: normal;
+            font-family: 'Circular-Loom';
+   
+            src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+         }
+   
+         @font-face {
+            font-weight: 700;
+            font-style: normal;
+            font-family: 'Circular-Loom';
+   
+            src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+         }
+   
+         @font-face {
+            font-weight: 900;
+            font-style: normal;
+            font-family: 'Circular-Loom';
+   
+            src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+         }
+   
+         .container {
+            width: 40%;
+         }
+   
+         .clsimg {
+            width: 30%;
+         }
+   
+         @media only screen and (max-width: 800px) {
+            .container {
+               width: 80%;
+            }
+            .clsimg {
+               width: 50%;
+            }
+         }
+      </style>
+   
+   </head>
+	<!-- <body onload="inicio()"> -->
+   <body onload="disponibilidad()">
+      <div id="container">
+			<div class="logo" align="center">
+				<img id="logo" src="./img/logoexpo2023.png" alt="" />
+			</div>
+         <h2 style="margin: 0px;">Inscripción en conferencias</h2>
+			<div id="div1" style="padding: 20px;" align="center">
+            <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+               <div style="width: 50%; text-align: left;">
+                  <label for="">Nombre</label>
+               </div>
+               <input id="nombres" type="text" value="" style="width: 50%;">
+            </div>
+            <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+               <div style="width: 50%; text-align: left;">
+                  <label for="">Apellidos</label>
+               </div>
+               <input id="apellidos" type="text" value="" style="width: 50%;">
+            </div>
+            <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+               <div style="width: 50%; text-align: left;">
+                  <label for="">Profesión / Oficio</label>
+               </div>
+               <input id="profesion" type="text" value="" style="width: 50%;">
+            </div>
+            <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+               <div style="width: 50%; text-align: left;">
+                  <label for="">Empresa</label>
+               </div>
+               <input id="empresa" type="text" value="" style="width: 50%;">
+            </div>
+            <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+               <div style="width: 50%; text-align: left;">
+                  <label for="">Teléfono <span style="font-size: 75%;">(584xxxxxxxxx)</span></label>
+               </div>
+               <input id="telefono" type="text" value="" maxlength="12" style="width: 50%;" placeholder="584xxxxxxxxx" onkeyup="validatelefono(this.id, this.value)">
+            </div>
+            <div class="campos" style="width: 100%; margin-bottom: 10px; display: flex;">
+               <div style="width: 50%; text-align: left;">
+                  <label for="">Correo</label>
+               </div>
+               <input id="correo" type="email" value="" style="width: 50%;" placeholder="email@email.com" onchange="validaemail(this.id,this.value)">
+            </div>
+
+            <div id="tituloconferencias" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <div style="width: 100%; text-align: center; font-size: 110%;">
+                  <label for=""><b>Selección de conferencia</b></label>
+               </div>
+            </div>
+            <div id="div-conf01" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf01" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">8:15-9:00 am FUNVIVE</label>
+               </div>
+            </div>
+            <div id="div-conf02" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf02" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">9:15 - 10:00 am Mary Mennuto y Julio Manzo - ”Inteligencia de Mercado: Big data para Ventas Efectivas.”</label>
+               </div>
+            </div>
+            <div id="div-conf03" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf03" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">10:15-11:00 am Leonardo Davila y Carlos Aguilera - “Realidad Virtual: la próxima frontera en educación y capacitación para empresas” - “Los niños y jovenes del presente ¿Creadores o consumidores?”</label>
+               </div>
+            </div>
+            <div id="div-conf04" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf04" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">11:15-11:45 Jose Luis Carrasquero - "La carne venezolana"</label>
+               </div>
+            </div>
+            <div id="div-conf05" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf05" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">12:00-12:30 José Nicolás Brizuela - “La familia como objetivo de responsabilidad social empresarial”</label>
+               </div>
+            </div>
+            <div id="div-conf06" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf06" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">12:45- 1:30  Luis Salazar y Miguelangel Herrera  - “Registro y defensa de las marcas comerciales en Venezuela” - “Ventas Neuro Ontológicas: Una venta ética para el ser”</label>
+               </div>
+            </div>
+            <div id="div-conf07" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf07" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">1:45-2:30 Rubén Canelon y Cesar Lopez - “Mentalidad infinita para el crecimiento empresarial” - “Oportunidades de Inversión en Bienes Raíces”</label>
+               </div>
+            </div>
+            <div id="div-conf08" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf08" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">2-45 - 3:05 Robert Concepcion - “Puente de Confianza entre España y Venezuela”</label>
+               </div>
+            </div>
+            <div id="div-conf09" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf09" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">3:20 - 3:40 Cristian Vicario y Agustín Gastel - “ La evolución del transporte de carga en Venezuela”</label>
+               </div>
+            </div>
+            <div id="div-conf10" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf10" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">3:55 - 4:55 Tulio Dávila y Luis Rodríguez - “Ventas con inteligencia artificial”</label>
+               </div>
+            </div>
+            <div id="div-conf11" class="campos" style="width: 100%; margin-bottom: 10px; display: none;">
+               <input id="conf11" type="checkbox" value="" style="width: 18px; height: 18px;" onchange="conferencias(this.id)">
+               <div style="width: 100%; text-align: justify; margin-left: 2%;">
+                  <label for="">5:10- 5:55 Ramon march e invitados especiales - “La resignificación del empresariado”</label>
+               </div>
+            </div>
+         <!-- Linea de botones -->
+				<div class="btns">
+               <button id="btnenviar" style="width: 7em;" onclick="enviar()">Enviar</button>
+					<button id="salir" onclick="salir()" style="width: 7em;">Salir</button>
+				</div>
+			</div>
+		</div>
+      <script>
+         const URL = 'https://app.cash-flag.com/apis/expo/conferencias2023.php'
+         const URLBUSCA = 'https://app.cash-flag.com/apis/expo/buscaconferencias1.php'
+         console.log(URLBUSCA);
+         let totconferencias = 0;
+   
+         const disponibilidad = () => {
+            fetch(URLBUSCA, {
+                  mode: 'cors'
+               })
+               .then((response) => response.json())
+               .then((responseData) => {
+                  console.log(responseData);
+                  if (responseData.exito==="SI") {
+                     muestra = 0;
+                     if (responseData.conf01<=140) {
+                        document.getElementById("div-conf01").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf02<=140) {
+                        document.getElementById("div-conf02").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf03<=140) {
+                        document.getElementById("div-conf03").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf04<=140) {
+                        document.getElementById("div-conf04").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf05<=140) {
+                        document.getElementById("div-conf05").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf06<=140) {
+                        document.getElementById("div-conf06").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf07<=140) {
+                        document.getElementById("div-conf07").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf08<=140) {
+                        document.getElementById("div-conf08").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf09<=140) {
+                        document.getElementById("div-conf09").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf10<=140) {
+                        document.getElementById("div-conf10").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (responseData.conf11<=135) {
+                        document.getElementById("div-conf11").style.display = 'flex';
+                        muestra++;
+                     }
+                     if (muestra>0) {
+                        document.getElementById("tituloconferencias").style.display = 'flex';
+                     }
+                  }
+               })
+               .catch(err => console.log(err));
+         }
+   
+         const validaemail = (elemento,correo) => {
+            if (correo!="") {
+               arroba = 0;
+               punto = 0;
+               posa = 0;
+               posp = 0;
+               for (index = 0; index < correo.length; index++) {
+                  if (correo[index] == "@") { arroba++; posa = index; }
+                  if (correo[index] == ".") { punto++; posp = index; }
+               }
+               if (arroba + punto > 1 && posp > posa) {
+                  return true;
+               } else {
+                  // if (opc==1) { alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); }
+                  alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); 
+                  document.getElementById(elemento).focus();
+                  return false;
+               }
+            }
+         }
+   
+            const validanumero = (elemento,valor) => {
+               lista = "0123456789,.";
+               let novalido = 0;
+               for (let i = 0; i < valor.length; i++) {
+                  posicion = lista.indexOf(valor.substr(i,1));
+                  if (posicion<0) {
+                     novalido++;
+                  }
+               }
+               if (novalido>0) {
+                  alert("En este campo sólo se permiten números, coma (,) o punto (.)");
+                  document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+   
+                  document.getElementById(elemento).focus();
+               }
+            }
+   
+            const validatelefono = (elemento,valor) => {
+               lista = "0123456789";
+               let novalido = 0;
+               for (let i = 0; i < valor.length; i++) {
+                  posicion = lista.indexOf(valor.substr(i,1));
+                  if (posicion<0) {
+                     novalido++;
+                  }
+                  if (i==0) {
+                     if(valor.substr(i,1)!='5') {
+                        novalido = 20;
+                     }
+                  }
+                  if (i==1) {
+                     if(valor.substr(i,1)!='8') {
+                        novalido = 21;
+                     }
+                  }
+                  if (i==2) {
+                     if(valor.substr(i,1)!='4') {
+                        novalido = 22;
+                     }
+                  }
+               }
+               if (novalido>0) {
+                  if (novalido==20) {
+                     alert("El número de teléfono debe empezar por 5");
+                  } else {
+                     if (novalido==21) {
+                        alert("El segundo caracter en el número de teléfono debe ser 8");
+                     } else {
+                        if (novalido==22) {
+                           alert("El tercer caracter en el número de teléfono debe ser 4");
+                        } else {
+                           alert("En este campo sólo se permiten números");
+                        }
+                     }
+                  }
+                  document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+   
+                  document.getElementById(elemento).focus();
+               }
+            }
+   
+         const conferencias = (id) => {
+            console.log(id,totconferencias); 
+            if (document.getElementById(id).checked) {
+               totconferencias++;
+            } else  {
+               totconferencias--;
+            }
+            if (totconferencias>3) {
+               alert("No puede seleccionar más de 3 conferencias.");
+               document.getElementById(id).checked = false;
+               totconferencias--;
+            }
+         }
+   
+         const enviar = () => {
+            valor = document.getElementById("telefono").value;
+            lista = "0123456789";
+            let novalido = 0;            
+            for (let i = 0; i < valor.length; i++) {
+               posicion = lista.indexOf(valor.substr(i,1));
+               if (posicion<0) {
+                  novalido++;
+               }
+               if (i==0) {
+                  if(valor.substr(i,1)!='5') {
+                     novalido = 20;
+                  }
+               }
+               if (i==1) {
+                  if(valor.substr(i,1)!='8') {
+                     novalido = 21;
+                  }
+               }
+               if (i==2) {
+                  if(valor.substr(i,1)!='4') {
+                     novalido = 22;
+                  }
+               }
+            }
+            if (valor.length!=12) { novalido = 23; }
+            if (novalido>0) {
+               if (novalido==20) {
+                  alert("El número de teléfono debe empezar por 5");
+               } else {
+                  if (novalido==21) {
+                     alert("El segundo caracter en el número de teléfono debe ser 8");
+                  } else {
+                     if (novalido==22) {
+                        alert("El tercer caracter en el número de teléfono debe ser 4");
+                     } else {
+                        if (novalido==23) {
+                           alert("El número de teléfono debe tener 12 dígitos");
+                        } else {
+                           alert("En este campo sólo se permiten números");
+                        }
+                     }
+                  }
+               }
+               document.getElementById("telefono").focus();
+            } else {
+               document.getElementById("btnenviar").disabled = true;
+   
+               let data = new FormData();
+   
+               data.append("nombres",   document.getElementById("nombres").value);
+               data.append("apellidos", document.getElementById("apellidos").value);
+               data.append("profesion", document.getElementById("profesion").value);
+               data.append("empresa",   document.getElementById("empresa").value);
+               data.append("telefono",  document.getElementById("telefono").value);
+               data.append("correo",    document.getElementById("correo").value);
+   
+               data.append("conf01",  (document.getElementById("conf01").checked) ? "SI": "NO");
+               data.append("conf02",  (document.getElementById("conf02").checked) ? "SI": "NO");
+               data.append("conf03",  (document.getElementById("conf03").checked) ? "SI": "NO");
+               data.append("conf04",  (document.getElementById("conf04").checked) ? "SI": "NO");
+               data.append("conf05",  (document.getElementById("conf05").checked) ? "SI": "NO");
+               data.append("conf06",  (document.getElementById("conf06").checked) ? "SI": "NO");
+               data.append("conf07",  (document.getElementById("conf07").checked) ? "SI": "NO");
+               data.append("conf08",  (document.getElementById("conf08").checked) ? "SI": "NO");
+               data.append("conf09",  (document.getElementById("conf09").checked) ? "SI": "NO");
+               data.append("conf10",  (document.getElementById("conf10").checked) ? "SI": "NO");
+               data.append("conf11",  (document.getElementById("conf11").checked) ? "SI": "NO");
+               /*
+               var xmlhttp = new XMLHttpRequest();
+               xmlhttp.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                     respuesta = JSON.parse(this.responseText);
+                     alert(respuesta.mensaje);
+                     if (respuesta.exito == 'SI') {
+                        document.getElementById("nombres").value = "";
+                        document.getElementById("apellidos").value = "";
+                        document.getElementById("profesion").value = "";
+                        document.getElementById("empresa").value = "";
+                        document.getElementById("telefono").value = "";
+                        document.getElementById("correo").value = "";
+                        // document.getElementById("estado").value = "";
+                        // document.getElementById("pais").value = "";
+                        document.getElementById("cantidad").value = "1";
+                        // document.getElementById("sector").value = "ninguno";
+                        // document.getElementById("camara").value = "";
+                        document.getElementById("conf01").checked = false;
+                        document.getElementById("conf02").checked = false;
+                        document.getElementById("conf03").checked = false;
+                        document.getElementById("conf04").checked = false;
+                        document.getElementById("conf05").checked = false;
+                        document.getElementById("conf06").checked = false;
+                        document.getElementById("conf07").checked = false;
+                        document.getElementById("conf08").checked = false;
+                        document.getElementById("conf09").checked = false;
+                        document.getElementById("conf10").checked = false;
+                        document.getElementById("btnenviar").disabled = false;
+                     } else {
+                        document.getElementById("btnenviar").disabled = false;
+                     }
+                  }
+               };
+               xmlhttp.open("POST", URL, true);
+               xmlhttp.send(data);
+               */
+   
+               fetch(URL, {
+                  method: 'POST',
+                  body: data,
+                  mode: 'cors'
+               })
+               .then((response) => response.json())
+               .then((responseData) => {
+                  alert(responseData.mensaje);
+                  if (responseData.exito==="SI") {
+                     document.getElementById("nombres").value = "";
+                     document.getElementById("apellidos").value = "";
+                     document.getElementById("profesion").value = "";
+                     document.getElementById("empresa").value = "";
+                     document.getElementById("telefono").value = "";
+                     document.getElementById("correo").value = "";
+   
+                     document.getElementById("conf01").checked = false;
+                     document.getElementById("conf02").checked = false;
+                     document.getElementById("conf03").checked = false;
+                     document.getElementById("conf04").checked = false;
+                     document.getElementById("conf05").checked = false;
+                     document.getElementById("conf06").checked = false;
+                     document.getElementById("conf07").checked = false;
+                     document.getElementById("conf08").checked = false;
+                     document.getElementById("conf09").checked = false;
+                     document.getElementById("conf10").checked = false;
+                     document.getElementById("conf11").checked = false;
+                     document.getElementById("btnenviar").disabled = false;
+                     totconferencias = 0;
+                  } else {
+                     document.getElementById("btnenviar").disabled = false;
+                  }
+               })
+               .catch(err => console.log(err));
+            }
+         }
+			function salir() {
+            xsalir = localStorage.getItem("url_bck2");
+            window.location.replace(xsalir);
+			}
+
+      </script>
+   
+<!-- 
+		<script>
+			xsalir = localStorage.getItem("url_bck2");
+         const URL = 'https://app.cash-flag.com/apis/expo/visitantesmanual';
+         const operador = localStorage.getItem("nombre");
+         const dia      = localStorage.getItem("dia");
+
+         function inicio() {
+            document.getElementById("nombres").value = "";
+            document.getElementById("apellidos").value = "";
+            document.getElementById("profesion").value = "";
+            document.getElementById("empresa").value = "";
+            document.getElementById("telefono").value = "";
+            document.getElementById("correo").value = "";
+            document.getElementById("estado").value = "";
+            document.getElementById("pais").value = "";
+            document.getElementById("cantidad").value = "1";
+            document.getElementById("sector").value = "ninguno";
+            document.getElementById("camara").value = "";
+            document.getElementById("btnenviar").disabled = false;
+         }
+
+			function salir() {
+            window.location.replace(xsalir);
+			}
+
+			const validanumero = (elemento,valor) => {
+				lista = "0123456789";
+				let novalido = 0;
+				for (let i = 0; i < valor.length; i++) {
+					posicion = lista.indexOf(valor.substr(i,1));
+					if (posicion<0) {
+						novalido++;
+					}
+				}
+				if (novalido>0) {
+					alert("En este campo sólo se permiten números.");
+					document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+
+					document.getElementById(elemento).focus();
+				}
+			}
+
+         const validaemail = (elemento,correo) => {
+            if (correo!="") {
+               arroba = 0;
+               punto = 0;
+               posa = 0;
+               posp = 0;
+               for (index = 0; index < correo.length; index++) {
+                  if (correo[index] == "@") { arroba++; posa = index; }
+                  if (correo[index] == ".") { punto++; posp = index; }
+               }
+               if (arroba + punto > 1 && posp > posa) {
+                  return true;
+               } else {
+                  // if (opc==1) { alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); }
+                  alert('Email invalido, debe introducir un formato de email válido (incluir el @ y al menos un . )'); 
+                  document.getElementById(elemento).focus();
+                  return false;
+               }
+            }
+         }
+
+			const validatelefono = (elemento,valor) => {
+				lista = "0123456789";
+				let novalido = 0;
+				for (let i = 0; i < valor.length; i++) {
+					posicion = lista.indexOf(valor.substr(i,1));
+					if (posicion<0) {
+						novalido++;
+					}
+					if (i==0) {
+						if(valor.substr(i,1)!='5') {
+							novalido = 20;
+						}
+					}
+					if (i==1) {
+						if(valor.substr(i,1)!='8') {
+							novalido = 21;
+						}
+					}
+					if (i==2) {
+						if(valor.substr(i,1)!='4') {
+							novalido = 22;
+						}
+					}
+				}
+				if (novalido>0) {
+               if (novalido==20) {
+                  alert("El número de teléfono debe empezar por 5");
+               } else {
+                  if (novalido==21) {
+                     alert("El segundo caracter en el número de teléfono debe ser 8");
+                  } else {
+                     if (novalido==22) {
+                        alert("El tercer caracter en el número de teléfono debe ser 4");
+                     } else {
+                        alert("En este campo sólo se permiten números");
+                     }
+                  }
+               }
+					document.getElementById(elemento).value = valor.substr(0,valor.length-1);
+
+					document.getElementById(elemento).focus();
+				}
+			}
+
+         const enviar = () => {
+            valor = document.getElementById("telefono").value;
+            lista = "0123456789";
+            let novalido = 0;            
+            for (let i = 0; i < valor.length; i++) {
+               posicion = lista.indexOf(valor.substr(i,1));
+               if (posicion<0) {
+                  novalido++;
+               }
+               if (i==0) {
+                  if(valor.substr(i,1)!='5') {
+                     novalido = 20;
+                  }
+               }
+               if (i==1) {
+                  if(valor.substr(i,1)!='8') {
+                     novalido = 21;
+                  }
+               }
+               if (i==2) {
+                  if(valor.substr(i,1)!='4') {
+                     novalido = 22;
+                  }
+               }
+            }
+            if (valor.length!=12) { novalido = 23; }
+            if (novalido>0) {
+               if (novalido==20) {
+                  alert("El número de teléfono debe empezar por 5");
+               } else {
+                  if (novalido==21) {
+                     alert("El segundo caracter en el número de teléfono debe ser 8");
+                  } else {
+                     if (novalido==22) {
+                        alert("El tercer caracter en el número de teléfono debe ser 4");
+                     } else {
+                        if (novalido==23) {
+                           alert("El número de teléfono debe tener 12 dígitos");
+                        } else {
+                           alert("En este campo sólo se permiten números");
+                        }
+                     }
+                  }
+               }
+               document.getElementById("telefono").focus();
+            } else {
+               document.getElementById("btnenviar").disabled = true;
+
+               let data = new FormData();
+
+               data.append("nombres",   document.getElementById("nombres").value);
+               data.append("apellidos", document.getElementById("apellidos").value);
+               data.append("profesion", document.getElementById("profesion").value);
+               data.append("empresa",   document.getElementById("empresa").value);
+               data.append("telefono",  document.getElementById("telefono").value);
+               data.append("correo",    document.getElementById("correo").value);
+               data.append("estado",    document.getElementById("estado").value);
+               data.append("pais",      document.getElementById("pais").value);
+               data.append("cantidad",  document.getElementById("cantidad").value);
+               data.append("sector",    document.getElementById("sector").value);
+               data.append("camara",    document.getElementById("camara").value);
+               data.append("operador",  operador);
+               data.append("dia",       dia);
+               
+               fetch(URL, {
+                  method: 'POST',
+                  body: data
+               })
+               .then((response) => response.json())
+               .then((responseData) => {
+                  alert(responseData.mensaje);
+                  if (responseData.exito==="SI") {
+                     document.getElementById("nombres").value = "";
+                     document.getElementById("apellidos").value = "";
+                     document.getElementById("profesion").value = "";
+                     document.getElementById("empresa").value = "";
+                     document.getElementById("telefono").value = "";
+                     document.getElementById("correo").value = "";
+                     document.getElementById("estado").value = "";
+                     document.getElementById("pais").value = "";
+                     document.getElementById("cantidad").value = "1";
+                     document.getElementById("sector").value = "ninguno";
+                     document.getElementById("camara").value = "";
+                     document.getElementById("btnenviar").disabled = false;
+                  } else {
+                     document.getElementById("btnenviar").disabled = false;
+                  }
+               });
+            }
+         }
+      </script>
+ -->
+</body>
+</html>
