@@ -69,6 +69,12 @@
                      mensaje = 'Pase número: '+visitante.id+"\n";
                      mensaje += 'Nombre del visitante: '+visitante.nombres.trim()+' '+visitante.apellidos.trim()+"\n";
                      mensaje += 'Empresa: '+visitante.empresa.trim()+"\n\n";
+
+                     mensaje += 'Conferencias: '+"\n";
+                     mensaje += visitante.conf01.trim()+"\n";
+                     mensaje += visitante.conf02.trim()+"\n";
+                     mensaje += visitante.conf03.trim()+"\n\n";
+
                      mensaje += 'Cantidad de personas:';
                      cantidad = prompt(mensaje,visitante.cantidad)
                      if (cantidad!=0 && cantidad!=null) {
